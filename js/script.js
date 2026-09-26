@@ -47,6 +47,9 @@ const bookList = document.getElementById("book-list");
 // <-- Displays Function: Builds and renders all book cards -->
 function displayBooks(){
 
+  //Clears Old Cards: Removes previous renders before rebuilding
+  bookList.innerHTML = "";
+
 
 // <-- Logic: Loop through the Books Array --->
 for (let i = 0; i < books.length; i++) {
