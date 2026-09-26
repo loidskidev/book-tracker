@@ -44,6 +44,10 @@ let books = [
 // <--- DOM Selection: Grabs the book list from the container --> 
 const bookList = document.getElementById("book-list");
 
+// <-- Displays Function: Builds and renders all book cards -->
+function displayBooks(){
+
+
 // <-- Logic: Loop through the Books Array --->
 for (let i = 0; i < books.length; i++) {
 
@@ -123,3 +127,7 @@ colDiv.appendChild(cardDiv);
 // <-- Book list: Puts the column inside the book list --> 
 bookList.appendChild(colDiv);
 }
+}
+
+// <-- Initial Display: Shows the books when the page loads --> 
+displayBooks();
