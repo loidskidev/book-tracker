@@ -30,14 +30,17 @@
 
     <!-- Explore Books ... Main of the page, it will display at the centre of the page at the top-->
     <main>
-      <h2>Welcome to the Book Tracker</h2>
-      <p>
-        Rate the books you've read and makes sure to keep track of all your
-        reading list
-      </p>
-      <a href="#/Explore">Explore Books</a>
-
-      <button class="btn btn-primary btn-lg">Sort by Rating</button>
+      <div class="container">
+        <h2>Welcome to the Book Tracker</h2>
+        <p>
+          Rate the books you've read and makes sure to keep track of all your
+          reading list
+        </p>
+        <a href="#/Explore">Explore Books</a>
+        <button class="btn btn-primary btn-lg">Sort by Rating</button>
+        <div id="book-list" class="row row-cols-1 row-cols-md-2 row-cols-lg-3"></div>
+        </div>
+      </div>
     </main>
     <!--Connects my JavaScript file -->
     <script src="js/script.js"></script>
