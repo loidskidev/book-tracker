@@ -67,7 +67,7 @@ cardBody.classList.add("card-body");
 btn.classList.add("btn", "btn-primary");
 
 // <--- Rating Background: Red for starting score ---> 
-rating.classList.add("bg-warning", "text-dark", "p-2", "rounded");
+rating.classList.add("bg-danger", "text-dark", "p-2", "rounded");
 
 // <-- Data Injection: Populates the Eleemnts with Book Info ---> 
 img.src = book.image; 
@@ -77,8 +77,6 @@ img.alt = book.title + " cover";
 
 title.textContent = book.title; 
 desc.textContent = book.description; 
-
-
 rating.textContent = book.rating + "/10"; 
 
 btn.textContent = "Rate +1";
@@ -86,8 +84,21 @@ btn.textContent = "Rate +1";
 btn.addEventListener("click", function () {
   if (book.rating < 10 ) {
     book.rating++;
-    rating.textContent = book.rating + "/10";
-  
+    rating.textContent = book.rating + "/10"
+
+//<-- Rating Colors: Swaps background based on score --> 
+rating.classList.remove("bg-danger", "bg-warning", "bg-success");
+
+if (book.rating >= 4 && book.rating <= 7) {
+  rating.classList.add("bg-warning", "text-dark");
+  rating.classList.remove("text-white");
+} else if (book.rating >=8) {
+  rating.classList.add("bg-success", "text-white");
+  rating.classList.remove("text-dark");
+} else {
+  rating.classList.add("bg-danger", "text-white");
+  rating.classList.remove("text-dark");
+}
 
   // <!-- Max Rating Alert --> 
   if (book.rating === 10) {
