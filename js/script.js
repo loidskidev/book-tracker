@@ -81,8 +81,10 @@ rating.textContent = book.rating + "/10";
 btn.textContent = "Rate +1";
 // <!-- Event Listener: Rate Button Click ---> 
 btn.addEventListener("click", function () {
-  book.rating++;
-  rating.textContent = book.rating + "/10";
+  if (book.rating < 10 ) {
+    book.rating++;
+    rating.textContent = book.rating + "/10";
+  }
 });
 
 // <--- Appending: Puts the Title, Description, Rating and Button Inside the Card Body
