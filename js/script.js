@@ -66,6 +66,9 @@ img.classList.add("card-img-top");
 cardBody.classList.add("card-body");
 btn.classList.add("btn", "btn-primary");
 
+// <--- Rating Background: Red for starting score ---> 
+rating.classList.add("bg-warning", "text-dark", "p-2", "rounded");
+
 // <-- Data Injection: Populates the Eleemnts with Book Info ---> 
 img.src = book.image; 
 
