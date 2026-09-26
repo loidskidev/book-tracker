@@ -86,6 +86,20 @@ title.textContent = book.title;
 desc.textContent = book.description; 
 rating.textContent = book.rating + "/10"; 
 
+// <-- Initial Colors: Applies correct color for current rating -->
+rating.classList.remove("bg-danger", "bg-warning", "bg-success");
+
+if (book.rating >= 4 && book.rating <= 7) {
+  rating.classList.add("bg-warning", "text-dark");
+  rating.classList.remove("text-white");
+} else if (book.rating >=8) {
+  rating.classList.add("bg-success", "text-white");
+  rating.classList.remove("text-dark");
+} else {
+  rating.classList.add("bg-danger", "text-white");
+  rating.classList.remove("text-dark");
+}
+
 btn.textContent = "Rate +1";
 // <!-- Event Listener: Rate Button Click ---> 
 btn.addEventListener("click", function () {
