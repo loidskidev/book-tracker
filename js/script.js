@@ -85,6 +85,11 @@ btn.addEventListener("click", function () {
     book.rating++;
     rating.textContent = book.rating + "/10";
   }
+
+  // <!-- Max Rating Alert --> 
+  if (book.rating = 10) {
+    alert("Maxium rating reached for " + book.title + "!")
+  }
 });
 
 // <--- Appending: Puts the Title, Description, Rating and Button Inside the Card Body
