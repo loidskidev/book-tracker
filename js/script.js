@@ -1,4 +1,6 @@
 // TBD ... Planning
+
+// <--- Data Structure Array of Book Objects---> 
 let books = [
   { 
     title: "Dune", 
@@ -38,3 +40,47 @@ let books = [
   },
   // ... more books
 ]
+
+// <--- DOM Selection: Grabs the book list from the container --> 
+const bookList = document.getElementById("book-list");
+
+// <-- Logic: Loop through the Books Array --->
+for (let i = 0; i < books.length; i++) {
+  const book = books[i];
+  
+  // <--- Element Creation: Builds the Card Components ---> 
+    const colDiv = document.createElement("div");
+    const cardDiv = document.createElement("div");
+    const img = document.createElement("img");
+    const cardBody = document.createElement("div"); 
+    const title = document.createElement("h3");
+    const desc = document.createElement("p");
+    const rating = document.createElement("span");
+    const btn = document.createElement("button");
+
+// <--- Styling: Adds Bootstrap Classes --> 
+colDiv.classList.add("col");
+cardDiv.classList.add("card");
+img.classList.add("card-img-top");
+cardBody.classList.add("card-body");
+btn.classList.add("btn", "btn-primary");
+
+// <-- Data Injection: Populates the Eleemnts with Book Info ---> 
+img.src = book.image; 
+title.textContent = book.title; 
+desc.textContent = book.description; 
+rating .textContent = book.rating + "/10"; 
+btn.textContent = "Rate +1";
+
+// <--- Appending: Assembles the Card 
+cardBody.appendChild(title); 
+cardBody.appendChild(desc);
+cardBody.appendChild(rating);
+cardBody.appendChild(btn);
+
+cardDiv.appendChild(img);
+cardDiv.appendChild(cardBody);
+
+colDiv.appendChild(cardDiv);
+bookList.appendChild(colDiv);
+}
