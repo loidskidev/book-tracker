@@ -35,7 +35,7 @@ let books = [
    { 
     title: "The richest Man in Babylon", 
     image: "images/The-richest-Man-in-Babylon.jpg", 
-    description: "A ollection of parables set in ancient Babylon that teach simple, fundamental lessons about saying money and building wealth.", 
+    description: "A collection of parables set in ancient Babylon that teach simple, fundamental lessons about saving money and building wealth.", 
     rating: 0    
   },
   // ... more books
@@ -46,6 +46,7 @@ const bookList = document.getElementById("book-list");
 
 // <-- Logic: Loop through the Books Array --->
 for (let i = 0; i < books.length; i++) {
+
   const book = books[i];
   
   // <--- Element Creation: Builds the Card Components ---> 
@@ -67,20 +68,31 @@ btn.classList.add("btn", "btn-primary");
 
 // <-- Data Injection: Populates the Eleemnts with Book Info ---> 
 img.src = book.image; 
+
+// <-- Image Description: Adds Alternative Text for the Cover  --> 
+img.alt = book.title + " cover"; 
+
 title.textContent = book.title; 
 desc.textContent = book.description; 
-rating .textContent = book.rating + "/10"; 
+
+
+rating.textContent = book.rating + "/10"; 
+
 btn.textContent = "Rate +1";
 
-// <--- Appending: Assembles the Card 
+// <--- Appending: Puts the Title, Description, Rating and Button Inside the Card Body
 cardBody.appendChild(title); 
 cardBody.appendChild(desc);
 cardBody.appendChild(rating);
 cardBody.appendChild(btn);
 
+// <-- Card Assembly: Puts the Image and Card Body Inside the Card --> 
 cardDiv.appendChild(img);
 cardDiv.appendChild(cardBody);
 
+// <-- Column Assembly: Puts the card inside its column --> 
 colDiv.appendChild(cardDiv);
+
+// <-- Book list: Puts the column inside the book list --> 
 bookList.appendChild(colDiv);
 }
