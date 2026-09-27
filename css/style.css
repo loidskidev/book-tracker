@@ -1,16 +1,72 @@
-/* TBD ... Planning */ 
+/* <-- Body: Light blue page background --> */
+body {
+    background-color: #c5d7ea;
+    margin: 0;
+}
 
-/* <-- Welcome Banner: Full width welcome section --> */ 
+/* <-- Header: Navy navigation bar --> */ 
+.head-container {
+    background-color: #143764;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* <-- Brand Badge: Brass background with rounded corners --> */
+.brand-badge {
+    background-color: #d4af37;
+    color: #0a1f44;
+    font-size: 1.3rem;
+    padding: 8px 18px; 
+    border-radius: 8px; 
+    margin: 0; 
+    margin-right: auto; 
+    font-weight: 700; 
+    letter-spacing: 0.5px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* <-- Brand Link: Navy text inside the brass badge --> */ 
+.brand-badge a {
+    color: #0a1f44;
+    text-decoration: none;
+}
+
+/* <-- Navigation Links: Styles links directly inside the nav --> */ 
+.head-container > a {
+    color: #cfe0f0;
+    text-decoration: none;
+}
+
+/* <-- Navigation Hover: Navy text on Bootstrap's light background --> */ 
+.head-container > a:hover {
+    color: #143764;
+}
+
+/* <-- Welcome Banner: Full width background image and centered text --> */ 
 .welcome-banner {
     background-image: url("../images/library.jpg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: #ffffff;
     text-align: center;
     padding: 80px 20px; 
     margin-bottom: 40px; 
     position: relative;
 }
+
+/* <-- Welcome Overlay: Darkens the image to make text easier to read --> */ 
+.welcome-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* <-- Banner Content: Keeps the text and link above the overlay --> */ 
 .welcome-banner h2,
 .welcome-banner p,
 .welcome-banner a {
@@ -18,55 +74,47 @@
     z-index: 1;
 }
 
-/* <-- Welcome Overlay: Darkens image for readable text --> */ 
-.welcome-banner::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.55);
+/* <-- Book Container: Off white background with spacing and a shadow --> */ 
+.container {
+    background-color: #f7fafd;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(20, 55, 100, 0.2);
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
-
-/* <-- Header Nav: Dark bar at the top --> */ 
-.head-container {
-    background-color: #212529;
-    padding: 16px 32px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
+/* <-- Sort Button: Custom navy background and border --> */ 
+#sort-btn.btn-primary {
+    background-color: #143764;
+    border-color: #143764;
 }
 
-.head-container h1 {
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin: 0; 
-    margin-right: auto;
+/* <-- Sort Hover: Lighter navy when the pointer is over the button --> */ 
+#sort-btn.btn-primary:hover {
+    background-color: #2e5d8a;
+    border-color: #2e5d8a;
 }
 
-.head-container a {
-    color: #f1f1f1;
-    text-decoration: none;
-}
-
-.head-container a:hover {
-    color: #0d6efd;
-}
-
-/* <-- Card Images: Consistent height, cropped not stretched --> */ 
+/* <-- Card Images: Same height with cropping instead of stretching --> */ 
 .card-img-top {
     height: 260px; 
-    object-fit: cover; 
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px; 
 }
 
-/* <--Card Bodies: Equal flex height so bottoms line up --> */ 
+/* <--Cards: Equal height within each row, rounded corners and a shadow --> */ 
 .card {
     height: 100%;
     display: flex;
     flex-direction: column; 
+    border-radius: 12px;
+    border: 1px solid #dde5ee;
+    box-shadow: 0 2px 8px rgba(10, 31, 68, 0.08);
 }
 
-/* <-- Card Body: Grows to fill leftover space --> */ 
+/* <-- Card Body: Grows to fill the available space --> */ 
 .card-body {
     flex-grow: 1; 
     display: flex; 
@@ -74,7 +122,11 @@
     align-items: flex-start;
 }
 
-/* <-- Rate Button: Pinned to bottom of card --> */
-.card-body .btn {
-    margin-top: auto; 
+/* <-- Card Footer: Rating on the left and Rate button on the right --> */ 
+.card-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
 }

@@ -1,6 +1,4 @@
-// TBD ... Planning
-
-// <--- Data Structure Array of Book Objects--->
+// <-- Book Data: Stores the information and starting rating for each book -->
 let books = [
   {
     title: "Dune",
@@ -38,40 +36,39 @@ let books = [
     rating: 0,
   },
   {
-    title: "The richest Man in Babylon",
+    title: "The Richest Man in Babylon",
     image: "images/The-richest-Man-in-Babylon.jpg",
     description:
       "A collection of parables set in ancient Babylon that teach simple, fundamental lessons about saving money and building wealth.",
     rating: 0,
   },
-  // ... more books
 ];
 
-// <--- DOM Selection: Grabs the book list from the container -->
+// <-- DOM Selection: Finds the book list and Sort button -->
 const bookList = document.getElementById("book-list");
 const sortBtn = document.getElementById("sort-btn");
 
-// <-- Event Listener: Sort Button Click -->
+// <-- Sort Button: Sorts the books when clicked -->
 sortBtn.addEventListener("click", function () {
-  // <-- Sort Logic: Rearranges books lowest to highest rating -->
+  // <-- Sort Order: Lowest rating first -->
   books.sort(function (a, b) {
     return a.rating - b.rating;
   });
 
-  // <-- Re-render: Rebuilds the cards in the new order
+  // <-- Re-render: Displays the books in their new order -->
   displayBooks();
 });
 
-// <-- Displays Function: Builds and renders all book cards -->
+// <-- Display Function: Builds and displays all book cards -->
 function displayBooks() {
-  //Clears Old Cards: Removes previous renders before rebuilding
+  // <-- Clears Cards: Removes old cards before rebuilding the list -->
   bookList.innerHTML = "";
 
-  // <-- Logic: Loop through the Books Array --->
+  // <-- Book Loop: Builds one card for each book -->
   for (let i = 0; i < books.length; i++) {
     const book = books[i];
 
-    // <--- Element Creation: Builds the Card Components --->
+    // <-- Element Creation: Creates the parts of a book card -->
     const colDiv = document.createElement("div");
     const cardDiv = document.createElement("div");
     const img = document.createElement("img");
@@ -80,28 +77,27 @@ function displayBooks() {
     const desc = document.createElement("p");
     const rating = document.createElement("span");
     const btn = document.createElement("button");
+    const footerRow = document.createElement("div");
 
-    // <--- Styling: Adds Bootstrap Classes -->
+    // <-- Styling: Adds Bootstrap Classes and custom classes -->
     colDiv.classList.add("col");
     cardDiv.classList.add("card");
     img.classList.add("card-img-top");
     cardBody.classList.add("card-body");
     btn.classList.add("btn", "btn-primary");
+    footerRow.classList.add("card-footer-row");
 
-    // <--- Rating Background: Red for starting score --->
-    rating.classList.add("bg-danger", "text-dark", "p-2", "rounded");
+    // <-- Rating Style: Adds padding and rounded corners -->
+    rating.classList.add("p-2", "rounded");
 
-    // <-- Data Injection: Populates the Eleemnts with Book Info --->
+    // <-- Book Content: Fills the elements with this book's information -->
     img.src = book.image;
-
-    // <-- Image Description: Adds Alternative Text for the Cover  -->
     img.alt = book.title + " cover";
-
     title.textContent = book.title;
     desc.textContent = book.description;
     rating.textContent = book.rating + "/10";
 
-    // <-- Initial Colors: Applies correct color for current rating -->
+    // <-- Initial Colors: Uses the current rating when creating the card -->
     rating.classList.remove("bg-danger", "bg-warning", "bg-success");
 
     if (book.rating >= 4 && book.rating <= 7) {
@@ -116,13 +112,14 @@ function displayBooks() {
     }
 
     btn.textContent = "Rate +1";
-    // <!-- Event Listener: Rate Button Click --->
+    // <!-- Rate Button: Increases this book's rating when clicked -->
     btn.addEventListener("click", function () {
+      // <-- Rating Limit: Stops the rating from going above 10 -->
       if (book.rating < 10) {
         book.rating++;
         rating.textContent = book.rating + "/10";
 
-        //<-- Rating Colors: Swaps background based on score -->
+        //<-- Rating Colors: Removes the old background before choosing a new one -->
         rating.classList.remove("bg-danger", "bg-warning", "bg-success");
 
         if (book.rating >= 4 && book.rating <= 7) {
@@ -136,27 +133,30 @@ function displayBooks() {
           rating.classList.remove("text-dark");
         }
 
-        // <!-- Max Rating Alert -->
+        // <!-- Maximum Rating: Shows an alert when the rating reaches 10 -->
         if (book.rating === 10) {
           alert("Maximum rating reached for " + book.title + "!");
         }
       }
     });
 
-    // <--- Appending: Puts the Title, Description, Rating and Button Inside the Card Body
+    // <-- Card Content: Adds the title and description -->
     cardBody.appendChild(title);
     cardBody.appendChild(desc);
-    cardBody.appendChild(rating);
-    cardBody.appendChild(btn);
 
-    // <-- Card Assembly: Puts the Image and Card Body Inside the Card -->
+    // <-- Footer Row: Groups the rating and Rate button -->
+    footerRow.appendChild(rating);
+    footerRow.appendChild(btn);
+    cardBody.appendChild(footerRow);
+
+    // <-- Card Assembly: Adds the image and body to the card -->
     cardDiv.appendChild(img);
     cardDiv.appendChild(cardBody);
 
-    // <-- Column Assembly: Puts the card inside its column -->
+    // <-- Column Assembly: Places the card inside its Bootstrap column -->
     colDiv.appendChild(cardDiv);
 
-    // <-- Book list: Puts the column inside the book list -->
+    // <-- Book list: Adds the completed column to the page -->
     bookList.appendChild(colDiv);
   }
 }

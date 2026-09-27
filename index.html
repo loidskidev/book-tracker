@@ -1,4 +1,3 @@
-<!-- TBD ... Planning-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,39 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Tracker</title>
 
-    <!-- Connects to the bootstrap-->
+    <!-- Loads Bootstrap styles-->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     />
 
-    <!-- Connects my style.css -->
+    <!-- Loads my custom styles -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
-    <!-- Book Header ... Visible on the top of the page -->
+    <!-- Header: Site title and navigation links -->
     <header>
       <nav class="head-container">
-        <h1>Book Tracker</h1>
-        <a href="#/Home">Home</a>
-        <a href="#/My_Reading_List">My Reading List</a>
-        <a href="#/About"> About </a>
+        <h1 class="brand-badge">
+          <a href="#/Home">Book Tracker</a>
+        </h1>
+        <a href="#/Home" class="btn btn-outline-light btn-sm">Home</a>
+        <a href="#/My_Reading_List" class="btn btn-outline-light btn-sm"
+          >My Reading List</a
+        >
+        <a href="#/About" class="btn btn-outline-light btn-sm"> About </a>
       </nav>
     </header>
 
-    <!-- Explore Books ... Main of the page, it will display at the centre of the page at the top-->
     <main>
-      <!-- Welcome Banner ... Full-width welcome section -->
+      <!-- Welcome Banner: Full-width background with introductory text -->
       <section class="welcome-banner">
         <h2>Welcome to the Book Tracker</h2>
-        <p>
-          Rate the books you've read and keep track of all your reading list.
-        </p>
+        <p>Rate the books you've read and keep track of your reading list.</p>
         <a href="#book-list" class="btn btn-outline-warning btn-lg"
           >Explore Books</a
         >
       </section>
+
+      <!-- Book Area: Sort button and dynamically generated cards-->
 
       <div class="container">
         <div class="text-center mb-3">
@@ -47,6 +49,7 @@
           </button>
         </div>
 
+        <!-- Bootstrap Grid: One, two or three columns depending on the screen size -->
         <div
           id="book-list"
           class="row row-cols-1 row-cols-md-2 row-cols-lg-3"
@@ -54,7 +57,7 @@
       </div>
     </main>
 
-    <!--Connects my JavaScript file -->
+    <!-- Loads my JavaScript after the page elements -->
     <script src="js/script.js"></script>
   </body>
 </html>
