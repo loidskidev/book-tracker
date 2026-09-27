@@ -1,1 +1,28 @@
 /* TBD ... Planning */ 
+
+/* <-- Welcome Banner: Full width welcome section --> */ 
+.welcome-banner {
+    background-image: url("../images/library.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px; 
+    margin-bottom: 40px; 
+    position: relative;
+}
+.welcome-banner h2,
+.welcome-banner p,
+.welcome-banner a {
+    position: relative;
+    z-index: 1;
+}
+
+/* <-- Welcome Overlay: Darkens image for readable text --> */ 
+.welcome-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+}

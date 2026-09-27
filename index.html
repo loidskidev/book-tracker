@@ -4,8 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Title to be changed -->
-    <title>Book Project</title>
+    <title>Book Tracker</title>
 
     <!-- Connects to the bootstrap-->
     <link
@@ -30,14 +29,16 @@
 
     <!-- Explore Books ... Main of the page, it will display at the centre of the page at the top-->
     <main>
-      <div class="container">
+      <!-- Welcome Banner ... Full-width welcome section -->
+      <section class="welcome-banner">
         <h2>Welcome to the Book Tracker</h2>
         <p>
           Rate the books you've read and keep track of all your reading list.
         </p>
+        <a href="#book-list">Explore Books</a>
+      </section>
 
-        <a href="#/Explore">Explore Books</a>
-
+      <div class="container">
         <button id="sort-btn" class="btn btn-primary btn-lg">
           Sort by Rating
         </button>
