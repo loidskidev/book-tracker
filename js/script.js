@@ -43,6 +43,18 @@ let books = [
 
 // <--- DOM Selection: Grabs the book list from the container --> 
 const bookList = document.getElementById("book-list");
+const sortBtn = document.getElementById("sort-btn");
+
+// <-- Event Listener: Sort Button Click -->
+sortBtn.addEventListener("click", function () {
+  // <-- Sort Logic: Rearranges books lowest to highest rating -->
+  books.sort(function (a, b) {
+    return a.rating - b.rating;
+  });
+
+// <-- Re-render: Rebuilds the cards in the new order 
+displayBooks();
+});
 
 // <-- Displays Function: Builds and renders all book cards -->
 function displayBooks(){
