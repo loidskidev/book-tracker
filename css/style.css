@@ -44,11 +44,37 @@
     margin-right: auto;
 }
 
-.head.container a {
+.head-container a {
     color: #f1f1f1;
     text-decoration: none;
 }
 
 .head-container a:hover {
     color: #0d6efd;
+}
+
+/* <-- Card Images: Consistent height, cropped not stretched --> */ 
+.card-img-top {
+    height: 260px; 
+    object-fit: cover; 
+}
+
+/* <--Card Bodies: Equal flex height so bottoms line up --> */ 
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+}
+
+/* <-- Card Body: Grows to fill leftover space --> */ 
+.card-body {
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+/* <-- Rate Button: Pinned to bottom of card --> */
+.card-body .btn {
+    margin-top: auto; 
 }
